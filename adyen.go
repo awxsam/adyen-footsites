@@ -10,8 +10,6 @@ import (
 
 type Adyen struct {
 	rsa     *adrsa
-	rsaEncryptAesVal string
-
 	aesKey     []byte
 	aesNonce   []byte
 }
