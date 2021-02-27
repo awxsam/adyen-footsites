@@ -60,11 +60,23 @@ func (y *Adyen) random(len int) []byte {
 	rand.Read(ak)
 	return ak
 }
-func (y *Adyen) EncryptCreditcardDetails(CCNumber string,ExpMonth string, ExpYear string, Cvc string) (EncryptedCCNumber string, EncryptedExpMonth string, EncryptedExpYear string, EncryptedCvc string){
-	EncryptedCCNumber,_ = y.EncryptCC(CCNumber,"","","")
-	EncryptedExpMonth,_ = y.EncryptCC("",ExpMonth,"","")
-	EncryptedExpYear,_ = y.EncryptCC("","",ExpYear,"")
-	EncryptedCvc,_ = y.EncryptCC("","","",Cvc)
+func (y *Adyen) EncryptCreditcardDetails(CCNumber string,ExpMonth string, ExpYear string, Cvc string) (EncryptedCCNumber string, EncryptedExpMonth string, EncryptedExpYear string, EncryptedCvc string, err error){
+	EncryptedCCNumber,err = y.EncryptCC(CCNumber,"","","")
+	if err != nil {
+		return "","","","",err
+	}
+	EncryptedExpMonth,err = y.EncryptCC("",ExpMonth,"","")
+	if err != nil {
+		return "","","","",err
+	}
+	EncryptedExpYear,err = y.EncryptCC("","",ExpYear,"")
+	if err != nil {
+		return "","","","",err
+	}
+	EncryptedCvc,err = y.EncryptCC("","","",Cvc)
+	if err != nil {
+		return "","","","",err
+	}
 	return
 }
 func (y *Adyen) EncryptCC(CCnumber string, ExpMonth string, ExpYear string, Cvc string) (string, error) {
