@@ -12,6 +12,7 @@ package main
 
 import (
 	y "github.com/awxsam/adyen-footsites"
+	"fmt"
 )
 func main() {
 	adyenKey := "Public Adyen Key"
