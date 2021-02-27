@@ -16,7 +16,10 @@ import (
 func main() {
 	adyenKey := "Public Adyen Key"
 	y := y.NewAdyen(adyenKey)
-	encryptedCCNumber,encryptedExpMonth, encryptedExpYear, encryptedCvc := y.EncryptCreditcardDetails("CCNUMBER", "EXPMONTH", "EXPYEAR", "CVC")
+	encryptedCCNumber,encryptedExpMonth, encryptedExpYear, encryptedCvc, err := y.EncryptCreditcardDetails("CCNUMBER", "EXPMONTH", "EXPYEAR", "CVC")
+	if err != nil {
+		panic(err)
+	}
 	fmt.Println(encryptedCCNumber)
 	fmt.Println(encryptedExpMonth)
 	fmt.Println(encryptedExpYear)
