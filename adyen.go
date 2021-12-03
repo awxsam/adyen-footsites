@@ -21,6 +21,7 @@ type Data struct {
 	ExpiryMonth    string `json:"expiryMonth"`
 	ExpiryYear     string `json:"expiryYear"`
 	Generationtime string `json:"generationtime"`
+	TEST           string `json:"t"`
 }
 
 type ExpiryYear struct {
