@@ -1,7 +1,7 @@
 # adyen-footsites
 ---
 
-Adyen Encryption for footsites, only v18 - you can add other versions yourself :)
+Adyen Encryption for footsites, only v25 - you can add other versions yourself :)
 
 ---
 
